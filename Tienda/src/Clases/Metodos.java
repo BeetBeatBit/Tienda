@@ -1,5 +1,4 @@
 package Clases;
-import clases.conectar;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -140,7 +139,7 @@ public class Metodos {
         return 0;
     }
     
-    public int SelectDatos(String usuario,String contra){
+    public int SelectDatos(String usuario, String contra){
         String Con = "";
         int control = 0;
         try{
