@@ -7,6 +7,9 @@ package tienda;
 
 import Clases.Metodos;
 import com.sun.glass.events.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -328,13 +331,17 @@ static boolean registrar = true;
         if (magicPass.getText().equals(contraMaestra)) {
             if (passw.equals(repeatPassw)) {
                 if (registrar == true) {
-                    int control;
-                    control=ft.inserDatosAdmin(usuario, passw);
-                    dispose ();
-                    Sistema sistema = new Sistema ();
-                    sistema.setVisible(true);
-                    sistema.setResizable(false);
-                    sistema.setLocationRelativeTo(null);
+                    try {
+                        int control;
+                        control=ft.inserDatosAdmin(usuario, passw);
+                        dispose ();
+                        Sistema sistema = new Sistema ();
+                        sistema.setVisible(true);
+                        sistema.setResizable(false);
+                        sistema.setLocationRelativeTo(null);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 } else {
                     int control;
                     control=ft.inserDatosAdmin(usuario, passw);
@@ -366,14 +373,18 @@ static boolean registrar = true;
             int control;
             control=ft.SelectDatosAdmin(usuario, contraseña);
             if(control==1){
-                dispose();
-                JOptionPane.showMessageDialog(null, "Bienvenido\nHas ingresado"+" satisfactoriamente al sistema", "Mensaje de Bienvenida", JOptionPane.INFORMATION_MESSAGE);
-                Sistema sistema = new Sistema();
-                sistema.setTitle ("Bievendio Administrador");
-                sistema.setSize(800, 350);
-                sistema.setVisible (true);
-                sistema.setResizable (false);
-                sistema.setLocationRelativeTo (null);
+                try {
+                    dispose();
+                    JOptionPane.showMessageDialog(null, "Bienvenido\nHas ingresado"+" satisfactoriamente al sistema", "Mensaje de Bienvenida", JOptionPane.INFORMATION_MESSAGE);
+                    Sistema sistema = new Sistema();
+                    sistema.setTitle ("Bievendio Administrador");
+                    sistema.setSize(800, 350);
+                    sistema.setVisible (true);
+                    sistema.setResizable (false);
+                    sistema.setLocationRelativeTo (null);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             }
             else{
@@ -411,14 +422,18 @@ static boolean registrar = true;
             int control;
             control=ft.SelectDatosAdmin(usuario, contraseña);
             if(control==1){
-                dispose();
-                JOptionPane.showMessageDialog(null, "Bienvenido\nHas ingresado"+" satisfactoriamente al sistema", "Mensaje de Bienvenida", JOptionPane.INFORMATION_MESSAGE);
-                Sistema sistema = new Sistema();
-                sistema.setTitle ("Bievendio Administrador");
-                sistema.setSize(700, 350);
-                sistema.setVisible (true);
-                sistema.setResizable (false);
-                sistema.setLocationRelativeTo (null);
+                try {
+                    dispose();
+                    JOptionPane.showMessageDialog(null, "Bienvenido\nHas ingresado"+" satisfactoriamente al sistema", "Mensaje de Bienvenida", JOptionPane.INFORMATION_MESSAGE);
+                    Sistema sistema = new Sistema();
+                    sistema.setTitle ("Bievendio Administrador");
+                    sistema.setSize(700, 350);
+                    sistema.setVisible (true);
+                    sistema.setResizable (false);
+                    sistema.setLocationRelativeTo (null);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             }
             else{
