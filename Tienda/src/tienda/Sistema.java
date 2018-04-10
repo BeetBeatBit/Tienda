@@ -76,7 +76,7 @@ public class Sistema extends javax.swing.JFrame {
         res.close();
         }   
         catch(SQLException ex){
-            Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
+            
             
         }
     }
